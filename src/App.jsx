@@ -317,15 +317,25 @@ function App() {
                     {Object.keys(styleConfig).map((key) => (
                         <div className="input-block" key={key}>
                             <label>{key}</label>
-                            <SketchPicker
-                                color={styleConfig[key].color}
-                                onChange={(color) =>
-                                    setStyleConfig({
-                                        ...styleConfig,
-                                        [key]: color.hex,
-                                    })
-                                }
-                            />
+                            <button
+                                className="swatch"
+                                style={{
+                                    backgroundColor: styleConfig[key].color,
+                                }}
+                            ></button>
+                            {styleConfig[key].colorPickerOpen ? (
+                                <div className="picker-wrapper">
+                                    <SketchPicker
+                                        color={styleConfig[key].color}
+                                        onChange={(color) =>
+                                            setStyleConfig({
+                                                ...styleConfig,
+                                                [key]: color.hex,
+                                            })
+                                        }
+                                    />
+                                </div>
+                            ) : null}
                         </div>
                     ))}
                 </div>
