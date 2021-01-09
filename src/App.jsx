@@ -68,6 +68,17 @@ function App() {
                             </PrismWrapper>
                         </div>
                     </div>
+                    <div className="export-controls">
+                        <a
+                            href={`data:text/json;charset=utf-8,${encodeURIComponent(
+                                styleTemplate(styleConfig)
+                            )}`}
+                            className="download-link"
+                            download="refract.css"
+                        >
+                            Download CSS
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

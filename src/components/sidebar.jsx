@@ -12,6 +12,7 @@ const SideBar = ({ styleConfig, setStyleConfig }) => {
     }
     return (
         <div className="sidebar">
+            <h3 className="sidebar-title">Colors</h3>
             {Object.keys(styleConfig).map((key) => (
                 <div className="input-block" key={key}>
                     <label>{key}</label>

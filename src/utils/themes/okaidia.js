@@ -1,4 +1,8 @@
 export default {
+    background: {
+        color: '#272822',
+        colorPickerOpen: false,
+    },
     comment: {
         color: '#8292a2',
         colorPickerOpen: false,

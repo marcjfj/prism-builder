@@ -34,7 +34,7 @@ const styles = (styleConfig) => {
 
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-      background: #272822;
+      background: ${styleConfig.background.color};
   }
 
   /* Inline code */
