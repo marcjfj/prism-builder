@@ -318,6 +318,12 @@ function App() {
                         <div className="input-block" key={key}>
                             <label>{key}</label>
                             <button
+                                onClick={() =>
+                                    (styleConfig[
+                                        key
+                                    ].colorPickerOpen = !styleConfig[key]
+                                        .colorPickerOpen)
+                                }
                                 className="swatch"
                                 style={{
                                     backgroundColor: styleConfig[key].color,
