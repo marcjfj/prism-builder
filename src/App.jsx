@@ -2,6 +2,7 @@ import './App.scss'
 import './utils/prism.js'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { SketchPicker } from 'react-color'
 
 const styles = (styleConfig) => {
     return `
@@ -170,41 +171,138 @@ const styles = (styleConfig) => {
     }
 `
 }
+// react-color picker: converted all keys and style to objects
+// color-picker-active set to boolean to open the color picker if it gets clicked
+// looping over all the object keys
+// generating the css
+//
 
 function App() {
     const [styleConfig, setStyleConfig] = useState({
-        comment: '#8292a2',
-        prolog: '#8292a2',
-        doctype: '#8292a2',
-        cdata: '#8292a2',
-        punctuation: '#f8f8f2',
-        namespace: '#f8f8f2',
-        property: '#f92672',
-        tag: '#f92672',
-        constant: '#f92672',
-        symbol: '#f92672',
-        deleted: '#f92672',
-        boolean: '#ae8whatever1ff',
-        number: '#ae81ff',
-        selector: '#a6e22e',
-        ttrName: '#a6e22e', // connect this to .ttr-name in styled.components
-        string: '#a6e22e',
-        char: '#a6e22e',
-        builtin: '#a6e22e',
-        inserted: '#a6e22e',
-        operator: '#f8f8f2',
-        entity: '#f8f8f2',
-        url: '#f8f8f2',
-        variable: '#f8f8f2',
-        atrule: '#e6db74',
-        ttrValue: '#e6db74',
-        function: '#e6db74',
-        classname: '#DD4A68',
-        keyword: '#66d9ef',
-        variable: '#fd971f',
-        important: '#fd971f',
-        regex: '#e90',
-        entity: 'help',
+        comment: {
+            color: '#8292a2',
+            colorPickerOpen: false,
+        },
+        prolog: {
+            color: '#8292a2',
+            colorPickerOpen: false,
+        },
+        doctype: {
+            color: '#8292a2',
+            colorPickerOpen: false,
+        },
+        cdata: {
+            color: '#8292a2',
+            colorPickerOpen: false,
+        },
+        punctuation: {
+            color: '#f8f8f2',
+            colorPickerOpen: false,
+        },
+        namespace: {
+            color: '#f8f8f2',
+            colorPickerOpen: false,
+        },
+        property: {
+            color: '#f92672',
+            colorPickerOpen: false,
+        },
+        tag: {
+            color: '#f92672',
+            colorPickerOpen: false,
+        },
+        constant: {
+            color: '#f92672',
+            colorPickerOpen: false,
+        },
+        symbol: {
+            color: '#f92672',
+            colorPickerOpen: false,
+        },
+        deleted: {
+            color: '#f92672',
+            colorPickerOpen: false,
+        },
+        boolean: {
+            color: '#f92672',
+            colorPickerOpen: false,
+        },
+        number: {
+            color: '#ae81ff',
+            colorPickerOpen: false,
+        },
+        selector: {
+            color: '#a6e22e',
+            colorPickerOpen: false,
+        },
+        ttrName: {
+            color: '#a6e22e',
+            colorPickerOpen: false, // connect this to .ttr-name in styled.components
+        },
+        string: {
+            color: '#a6e22e',
+            colorPickerOpen: false,
+        },
+        char: {
+            color: '#a6e22e',
+            colorPickerOpen: false,
+        },
+        builtin: {
+            color: '#a6e22e',
+            colorPickerOpen: false,
+        },
+        inserted: {
+            color: '#a6e22e',
+            colorPickerOpen: false,
+        },
+        operator: {
+            color: '#f8f8f2',
+            colorPickerOpen: false,
+        },
+        entity: {
+            color: '#f8f8f2',
+            colorPickerOpen: false,
+        },
+        url: {
+            color: '#f8f8f2',
+            colorPickerOpen: false,
+        },
+        variable: {
+            color: '#f8f8f2',
+            colorPickerOpen: false,
+        },
+        atrule: {
+            color: '#e6db74',
+            colorPickerOpen: false,
+        },
+        ttrValue: {
+            color: '#e6db74',
+            colorPickerOpen: false,
+        },
+        function: {
+            color: '#e6db74',
+            colorPickerOpen: false,
+        },
+        classname: {
+            color: '#DD4A68',
+            colorPickerOpen: false,
+        },
+        keyword: {
+            color: '#66d9ef',
+            colorPickerOpen: false,
+        },
+        variable: {
+            color: '#fd971f',
+            colorPickerOpen: false,
+        },
+        important: {
+            color: '#fd971f',
+            colorPickerOpen: false,
+        },
+        regex: {
+            color: '#e90',
+            colorPickerOpen: false,
+        },
     })
     const PrismWrapper = styled.div`
         ${styles(styleConfig)}
@@ -218,17 +316,15 @@ function App() {
                 <div className="sidebar">
                     {Object.keys(styleConfig).map((key) => (
                         <div className="input-block" key={key}>
-                            <label htmlFor="#comment-input">{key}</label>
-                            <input
-                                value={styleConfig[key]}
-                                onChange={(e) =>
+                            <label>{key}</label>
+                            <SketchPicker
+                                color={styleConfig[key].color}
+                                onChange={(color) =>
                                     setStyleConfig({
                                         ...styleConfig,
-                                        [key]: e.target.value,
+                                        [key]: color.hex,
                                     })
                                 }
-                                type="text"
-                                id="comment-input"
                             />
                         </div>
                     ))}
