@@ -3,7 +3,6 @@ import './utils/prism.js'
 import { useEffect, useState } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import GoogleFontLoader from 'react-google-font-loader'
-import ScrollArea from 'react-scrollbar'
 import styleTemplate from './utils/styleTemplate'
 import languageSamples from './utils/languageSamples'
 import allThemes from './utils/themes/_allThemes'
@@ -35,16 +34,10 @@ function App() {
         <div className="App">
             <GoogleFontLoader fonts={fontsForLoader} />
             <div className="container">
-                <ScrollArea
-                    className="sidebar-scroll-area"
-                    horizontal={false}
-                    speed={0.8}
-                >
-                    <SideBar
-                        styleConfig={styleConfig}
-                        setStyleConfig={setStyleConfig}
-                    />
-                </ScrollArea>
+                <SideBar
+                    styleConfig={styleConfig}
+                    setStyleConfig={setStyleConfig}
+                />
                 <div className="main">
                     <div className="preview-inner">
                         <div className="prism-container">
