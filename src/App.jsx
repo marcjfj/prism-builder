@@ -75,6 +75,7 @@ function App() {
                     </div>
                     <div className="bottom-bar">
                         <div className="export-controls">
+                            <h1 className="app-title">Refract</h1>
                             <button
                                 onClick={() => setGenCodeOpen(!genCodeOpen)}
                                 className="view-gen-code"
