@@ -1,18 +1,6 @@
 import { SketchPicker } from 'react-color'
 import ClickAwayListener from 'react-click-away-listener'
-import { useState, createRef } from 'react'
 const SideBar = ({ styleConfig, setStyleConfig }) => {
-    const [reffedConfig] = useState(
-        Object.keys(styleConfig).reduce(
-            (obj, key) =>
-                (obj = {
-                    ...obj,
-                    [key]: { ...styleConfig[key], ref: createRef() },
-                }),
-            {}
-        )
-    )
-    console.log(reffedConfig)
     const togglePicker = (key) => {
         setStyleConfig({
             ...styleConfig,
@@ -44,7 +32,6 @@ const SideBar = ({ styleConfig, setStyleConfig }) => {
                     <div className="top">
                         <label>{key}</label>
                         <button
-                            ref={reffedConfig[key].ref}
                             onClick={() => togglePicker(key)}
                             className="swatch"
                             style={{
