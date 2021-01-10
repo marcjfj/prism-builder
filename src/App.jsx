@@ -22,12 +22,14 @@ const PrismWrapper = styled.div`
 function App() {
     const [languageKey, setLanguageKey] = useState('js')
     const [fontKey, setFontKey] = useState('default')
+    const [genCodeOpen, setGenCodeOpen] = useState(false)
     const [presetTheme, setPresetTheme] = useState(allThemes.okaidia)
     const [styleConfig, setStyleConfig] = useState(allThemes.okaidia.config)
+    // const [fontSize, setFontSize] = useState(16)
 
     useEffect(async () => {
         Prism.highlightAll()
-    }, [styleConfig, languageKey, fontKey])
+    }, [styleConfig, languageKey, fontKey, genCodeOpen])
 
     return (
         <div className="App">
@@ -70,19 +72,46 @@ function App() {
                             </PrismWrapper>
                         </div>
                     </div>
-                    <div className="export-controls">
-                        <button className="view-gen-code">
-                            View Generated Code
-                        </button>
-                        <a
-                            href={`data:text/json;charset=utf-8,${encodeURIComponent(
-                                styleTemplate(styleConfig, fonts[fontKey])
-                            )}`}
-                            className="download-link"
-                            download="refract.css"
-                        >
-                            Download CSS
-                        </a>
+                    <div className="bottom-bar">
+                        <div className="export-controls">
+                            <button
+                                onClick={() => setGenCodeOpen(!genCodeOpen)}
+                                className="view-gen-code"
+                            >
+                                {genCodeOpen
+                                    ? 'Hide Generated CSS'
+                                    : 'View Generated CSS'}
+                            </button>
+                            <a
+                                href={`data:text/json;charset=utf-8,${encodeURIComponent(
+                                    styleTemplate(styleConfig, fonts[fontKey])
+                                )}`}
+                                className="download-link"
+                                download="refract.css"
+                            >
+                                Download CSS
+                            </a>
+                        </div>
+                        {genCodeOpen ? (
+                            <div className="gen-code">
+                                <PrismWrapper
+                                    template={styleTemplate(
+                                        styleConfig,
+                                        fonts[fontKey]
+                                    )}
+                                    className="gen-prism-wrapper"
+                                >
+                                    <pre>
+                                        <code className="language-css">
+                                            {styleTemplate(
+                                                styleConfig,
+                                                fonts[fontKey]
+                                            )}
+                                        </code>
+                                    </pre>
+                                </PrismWrapper>
+                            </div>
+                        ) : null}
                     </div>
                 </div>
                 <div className="right-bar">

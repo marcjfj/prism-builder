@@ -5,7 +5,6 @@ const styles = (styleConfig, font) => {
   pre[class*='language-'] {
       color: ${styleConfig.base.color};
       background: none;
-      text-shadow: 0 1px rgba(0, 0, 0, 0.3);
       font-family: ${
           font ? font.name : 'Consolas'
       }, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;

@@ -18,6 +18,17 @@ body {
     z-index: 25;
     box-shadow: inset -2px 0px 30px 0px rgba(0, 0, 0, 0.05);
 }
+
+::-webkit-scrollbar {
+    width: 11px;
+}
+::-webkit-scrollbar-track {
+    background: #282c2f;
+}
+::-webkit-scrollbar-thumb {
+    background: #404449;
+    border: 1px solid #282c2f;
+}
 .sidebar-title {
     display: block;
     background: #404449;
@@ -37,7 +48,8 @@ body {
     flex-direction: column;
     align-items: center; // vertically
     justify-content: flex-start; // horizontally
-    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
     width: 100%;
     background-color: #f4f6f6;
     position: sticky;
@@ -63,7 +75,7 @@ body {
 }
 .right-bar {
     width: 100%;
-    max-width: 250px;
+    max-width: 240px;
     background-color: #282c2f;
     height: 100vh;
 }
@@ -198,17 +210,20 @@ body {
     display: inline-block;
     margin-top: 10px;
 }
-
+.bottom-bar {
+    background: #e7eaee;
+    position: fixed;
+    bottom: 0;
+    left: 240px;
+    width: calc(100% - 480px);
+    margin-top: auto;
+}
 .export-controls {
     padding: 12px 20px;
-    background: #e7eaee;
-    position: sticky;
-    margin-top: auto;
     width: 100%;
-    bottom: 0;
     display: flex;
     justify-content: flex-end;
-    box-shadow: inset 2px 0px 30px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0px 2px 20px 0px rgba(0, 0, 0, 0.151);
 }
 .download-link,
 .view-gen-code {
@@ -226,5 +241,16 @@ body {
     border: none;
     &:hover {
         transform: scale(1.02);
+    }
+}
+.gen-code {
+    overflow-y: auto;
+    max-height: 70vh;
+}
+.gen-prism-wrapper {
+    margin: 0;
+    pre {
+        margin: 0 !important;
+        border-radius: 0 !important;
     }
 }
