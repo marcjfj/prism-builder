@@ -87,6 +87,19 @@ body {
     text-transform: uppercase;
     border: 1px solid #404449;
 }
+.font-size {
+    padding: 10px 0;
+    padding-left: 10px;
+    border-bottom: 1px solid #404449;
+}
+.font-size-input {
+    margin: 0 10px;
+    width: 50px;
+    background: #3f4652;
+    border: 0;
+    color: #eef3f4;
+    padding: 3px;
+}
 .app-title {
     display: flex;
     justify-content: flex-start;

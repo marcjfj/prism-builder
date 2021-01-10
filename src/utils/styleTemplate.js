@@ -1,4 +1,4 @@
-const styles = (styleConfig, font) => {
+const styles = (styleConfig, font, fontSize) => {
     return `
   ${font.import || ''}
   code[class*='language-'],
@@ -8,7 +8,7 @@ const styles = (styleConfig, font) => {
       font-family: ${
           font ? font.name : 'Consolas'
       }, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-      font-size: 1em;
+      font-size: ${fontSize}px;
       text-align: left;
       white-space: pre;
       word-spacing: normal;

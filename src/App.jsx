@@ -25,11 +25,11 @@ function App() {
     const [genCodeOpen, setGenCodeOpen] = useState(false)
     const [presetTheme, setPresetTheme] = useState(allThemes.okaidia)
     const [styleConfig, setStyleConfig] = useState(allThemes.okaidia.config)
-    // const [fontSize, setFontSize] = useState(16)
+    const [fontSize, setFontSize] = useState(16)
 
     useEffect(async () => {
         Prism.highlightAll()
-    }, [styleConfig, languageKey, fontKey, genCodeOpen])
+    }, [styleConfig, languageKey, fontKey, genCodeOpen, fontSize])
 
     return (
         <div className="App">
@@ -60,7 +60,8 @@ function App() {
                             <PrismWrapper
                                 template={styleTemplate(
                                     styleConfig,
-                                    fonts[fontKey]
+                                    fonts[fontKey],
+                                    fontSize
                                 )}
                                 className="prism-wrapper"
                             >
@@ -105,7 +106,8 @@ function App() {
                                         <code className="language-css">
                                             {styleTemplate(
                                                 styleConfig,
-                                                fonts[fontKey]
+                                                fonts[fontKey],
+                                                fontSize
                                             )}
                                         </code>
                                     </pre>
@@ -116,8 +118,11 @@ function App() {
                 </div>
                 <div className="right-bar">
                     <div className="font-select-wrapper">
-                        <label className="sidebar-title">Font</label>
+                        <label htmlFor="font-select" className="sidebar-title">
+                            Font
+                        </label>
                         <select
+                            id="font-select"
                             className="font-select"
                             value={fontKey}
                             onChange={(e) => setFontKey(e.target.value)}
@@ -128,6 +133,16 @@ function App() {
                                 </option>
                             ))}
                         </select>
+                        <div className="font-size input-block">
+                            <input
+                                value={fontSize}
+                                onChange={(e) => setFontSize(e.target.value)}
+                                type="number"
+                                id="font-size-input"
+                                className="font-size-input"
+                            />
+                            <label htmlFor="font-size-input">px</label>
+                        </div>
                     </div>
                 </div>
             </div>
