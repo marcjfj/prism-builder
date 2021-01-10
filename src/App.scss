@@ -7,8 +7,8 @@ body {
 }
 
 .sidebar {
-    max-width: 240px;
-    width: 100%;
+    width: 240px;
+    flex-shrink: 0;
     background-color: #282c2f;
     height: 100vh;
     overflow-y: auto;
@@ -74,8 +74,8 @@ body {
     }
 }
 .right-bar {
-    width: 100%;
-    max-width: 240px;
+    width: 240px;
+    flex-shrink: 0;
     background-color: #282c2f;
     height: 100vh;
 }
