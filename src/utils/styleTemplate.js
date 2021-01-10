@@ -1,5 +1,4 @@
 const styles = (styleConfig, font) => {
-    console.log(typeof styleConfig)
     return `
   ${font.import || ''}
   code[class*='language-'],

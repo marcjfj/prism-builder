@@ -16,7 +16,6 @@ const fontsForLoader = Object.keys(fonts)
             : null
     })
     .filter((font) => font)
-console.log(fontsForLoader)
 const PrismWrapper = styled.div`
     ${(props) => props.template}
 `
