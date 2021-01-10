@@ -1,6 +1,18 @@
 import { SketchPicker } from 'react-color'
 import ClickAwayListener from 'react-click-away-listener'
+import { useState, createRef } from 'react'
 const SideBar = ({ styleConfig, setStyleConfig }) => {
+    const [reffedConfig] = useState(
+        Object.keys(styleConfig).reduce(
+            (obj, key) =>
+                (obj = {
+                    ...obj,
+                    [key]: { ...styleConfig[key], ref: createRef() },
+                }),
+            {}
+        )
+    )
+    console.log(reffedConfig)
     const togglePicker = (key) => {
         setStyleConfig({
             ...styleConfig,
@@ -10,25 +22,43 @@ const SideBar = ({ styleConfig, setStyleConfig }) => {
             },
         })
     }
+    const highlightPairs = (selector, active) => {
+        const tokens = document.querySelectorAll(selector).forEach((t) => {
+            t.style.textDecoration = active ? 'underline' : 'none'
+        })
+    }
     return (
         <div className="sidebar">
             <h3 className="sidebar-title">Colors</h3>
             {Object.keys(styleConfig).map((key) => (
-                <div className="input-block" key={key}>
-                    <label>{key}</label>
-                    <button
-                        onClick={() => togglePicker(key)}
-                        className="swatch"
-                        style={{
-                            backgroundColor: styleConfig[key].color,
-                        }}
-                    ></button>
+                <div
+                    className="input-block"
+                    key={key}
+                    onMouseOver={() =>
+                        highlightPairs(styleConfig[key].selector, true)
+                    }
+                    onMouseLeave={() =>
+                        highlightPairs(styleConfig[key].selector, false)
+                    }
+                >
+                    <div className="top">
+                        <label>{key}</label>
+                        <button
+                            ref={reffedConfig[key].ref}
+                            onClick={() => togglePicker(key)}
+                            className="swatch"
+                            style={{
+                                backgroundColor: styleConfig[key].color,
+                            }}
+                        ></button>
+                    </div>
                     {styleConfig[key].colorPickerOpen ? (
                         <div className="picker-wrapper">
                             <ClickAwayListener
                                 onClickAway={() => togglePicker(key)}
                             >
                                 <SketchPicker
+                                    disableAlpha={true}
                                     color={styleConfig[key].color}
                                     presetColors={[
                                         ...new Set(

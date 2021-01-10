@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { SketchPicker } from 'react-color'
 import ClickAwayListener from 'react-click-away-listener'
+// import ScrollArea from 'react-scrollbar'
 import styleTemplate from './utils/styleTemplate'
 import languageSamples from './utils/languageSamples'
 import allThemes from './utils/themes/_allThemes'
@@ -31,6 +32,7 @@ function App() {
             },
         })
     }
+
     useEffect(() => {
         Prism.highlightAll()
     }, [styleConfig, languageKey])
@@ -41,6 +43,7 @@ function App() {
                     styleConfig={styleConfig}
                     setStyleConfig={setStyleConfig}
                 />
+
                 <div className="main">
                     <div className="preview-inner">
                         <div className="prism-container">
@@ -69,6 +72,9 @@ function App() {
                         </div>
                     </div>
                     <div className="export-controls">
+                        <button className="view-gen-code">
+                            View Generated Code
+                        </button>
                         <a
                             href={`data:text/json;charset=utf-8,${encodeURIComponent(
                                 styleTemplate(styleConfig)

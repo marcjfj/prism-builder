@@ -5,14 +5,20 @@ body {
     display: flex;
     align-items: flex-start;
 }
+.sidebar-scroll-area {
+    width: 100%;
+    height: 100vh;
+    overflow: visible;
+}
 .sidebar {
     width: 100%;
     max-width: 240px;
     background-color: #282c2f;
-    min-height: 100vh;
-    // overflow-y: auto;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding: 0 0 50px 0;
-    position: relative;
+    // position: relative;
     z-index: 25;
     box-shadow: inset -2px 0px 30px 0px rgba(0, 0, 0, 0.05);
     .sidebar-title {
@@ -49,6 +55,12 @@ body {
         max-width: 900px;
         // position: sticky;
         // top: 25px;
+        pre {
+            max-height: calc(100vh - 200px);
+        }
+        code span {
+            text-decoration: none;
+        }
     }
 }
 .app-title {
@@ -73,12 +85,17 @@ body {
     margin: 10vh;
 }
 .input-block {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
+    .top {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+    // position: relative;
     border-top: 1px solid #404449;
-    padding: 10px 20px;
     align-items: center;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
     label {
         margin-right: 10px;
         color: #eef3f4;
@@ -94,14 +111,27 @@ body {
         box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
         border: 1px solid #7b8184;
+        &:hover {
+            border: 2px solid #a8afb3;
+        }
     }
     .picker-wrapper {
-        position: absolute;
-        display: flex;
-        right: 15px;
-        bottom: 30px;
-        transform: translateX(100%) translateY(100%);
+        position: relative;
         z-index: 50;
+        display: flex;
+    }
+    .sketch-picker {
+        background: transparent !important;
+        label {
+            color: white !important;
+        }
+        input {
+            background: #7b8184 !important;
+            box-shadow: none !important;
+        }
+        .flexbox-fix {
+            border: 0 !important;
+        }
     }
 }
 
@@ -165,7 +195,9 @@ body {
     justify-content: flex-end;
     box-shadow: inset 2px 0px 30px 0px rgba(0, 0, 0, 0.15);
 }
-.download-link {
+.download-link,
+.view-gen-code {
+    appearance: none;
     border-radius: 4px;
     background: #ffffff;
     padding: 5px 10px;
@@ -173,4 +205,11 @@ body {
     box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.125),
         0px 2px 15px 0px rgba(0, 0, 0, 0.125);
     color: #282c2f;
+    transition: all 100ms;
+    font-size: 0.875rem;
+    margin-left: 20px;
+    border: none;
+    &:hover {
+        transform: scale(1.02);
+    }
 }

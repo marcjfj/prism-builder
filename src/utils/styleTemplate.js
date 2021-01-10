@@ -2,7 +2,7 @@ const styles = (styleConfig) => {
     return `
   code[class*='language-'],
   pre[class*='language-'] {
-      color: #f8f8f2;
+      color: ${styleConfig.base.color};
       background: none;
       text-shadow: 0 1px rgba(0, 0, 0, 0.3);
       font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -66,7 +66,7 @@ const styles = (styleConfig) => {
   }
 
   .token.property {
-      color: ${styleConfig.namespace.color};
+      color: ${styleConfig.property.color};
   }
   .token.tag {
       color: ${styleConfig.tag.color};
