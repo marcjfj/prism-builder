@@ -1,8 +1,10 @@
 import './App.scss'
 import './utils/prism.js'
 import { useEffect, useState } from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 import GoogleFontLoader from 'react-google-font-loader'
+import { SketchPicker } from 'react-color'
+import ClickAwayListener from 'react-click-away-listener'
 import styleTemplate from './utils/styleTemplate'
 import languageSamples from './utils/languageSamples'
 import allThemes from './utils/themes/_allThemes'
@@ -26,6 +28,8 @@ function App() {
     const [presetTheme, setPresetTheme] = useState(allThemes.okaidia)
     const [styleConfig, setStyleConfig] = useState(allThemes.okaidia.config)
     const [fontSize, setFontSize] = useState(16)
+    const [canvasColor, setCanvasColor] = useState('#f4f6f6')
+    const [canvasPicker, setCanvasPicker] = useState(false)
 
     useEffect(async () => {
         Prism.highlightAll()
@@ -39,23 +43,59 @@ function App() {
                     styleConfig={styleConfig}
                     setStyleConfig={setStyleConfig}
                 />
-                <div className="main">
+                <div className="main" style={{ background: canvasColor }}>
                     <div className="preview-inner">
                         <div className="prism-container">
-                            <div className="lang-select-wrapper">
-                                <select
-                                    className="language-select"
-                                    value={languageKey}
-                                    onChange={(e) =>
-                                        setLanguageKey(e.target.value)
-                                    }
-                                >
-                                    {Object.keys(languageSamples).map((key) => (
-                                        <option value={key} key={key}>
-                                            {languageSamples[key].title}
-                                        </option>
-                                    ))}
-                                </select>
+                            <div className="main-header">
+                                <div className="lang-select-wrapper">
+                                    <select
+                                        className="language-select"
+                                        value={languageKey}
+                                        onChange={(e) =>
+                                            setLanguageKey(e.target.value)
+                                        }
+                                    >
+                                        {Object.keys(languageSamples).map(
+                                            (key) => (
+                                                <option value={key} key={key}>
+                                                    {languageSamples[key].title}
+                                                </option>
+                                            )
+                                        )}
+                                    </select>
+                                </div>
+                                <div className="canvas-color">
+                                    <label htmlFor="canvas-color-button">
+                                        Canvas Color
+                                    </label>
+                                    <button
+                                        id="canvas-color-button"
+                                        className="swatch canvas-color-button"
+                                        style={{ background: canvasColor }}
+                                        onClick={() =>
+                                            setCanvasPicker(!canvasPicker)
+                                        }
+                                    ></button>
+                                    {canvasPicker && (
+                                        <ClickAwayListener
+                                            onClickAway={() =>
+                                                setCanvasPicker(false)
+                                            }
+                                        >
+                                            <div className="picker-wrapper">
+                                                <SketchPicker
+                                                    disableAlpha={true}
+                                                    color={canvasColor}
+                                                    onChange={(color) =>
+                                                        setCanvasColor(
+                                                            color.hex
+                                                        )
+                                                    }
+                                                />
+                                            </div>
+                                        </ClickAwayListener>
+                                    )}
+                                </div>
                             </div>
                             <PrismWrapper
                                 template={styleTemplate(

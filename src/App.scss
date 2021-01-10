@@ -51,7 +51,6 @@ body {
     height: 100vh;
     max-height: 100vh;
     width: 100%;
-    background-color: #f4f6f6;
     position: sticky;
     top: 0;
     padding-top: 30px;
@@ -71,6 +70,33 @@ body {
         code span {
             text-decoration: none;
         }
+    }
+}
+.main-header {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 25px;
+}
+.lang-select-wrapper {
+    width: 100%;
+    margin-right: 20px;
+}
+.canvas-color {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 5px;
+    background: #fff;
+    padding: 0px 10px;
+    label {
+        white-space: nowrap;
+        margin-right: 10px;
+        color: #3f4652;
+    }
+    .picker-wrapper {
+        position: absolute;
+        right: 0;
+        top: 40px;
     }
 }
 .right-bar {
@@ -119,6 +145,17 @@ body {
     margin-left: 50%;
     margin: 10vh;
 }
+.swatch {
+    height: 20px;
+    width: 20px;
+    border: 0;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: 1px solid #7b8184;
+    &:hover {
+        border: 2px solid #a8afb3;
+    }
+}
 .input-block {
     .top {
         display: flex;
@@ -139,17 +176,7 @@ body {
         text-transform: uppercase;
         letter-spacing: 2px;
     }
-    .swatch {
-        height: 20px;
-        width: 20px;
-        border: 0;
-        box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
-        border-radius: 5px;
-        border: 1px solid #7b8184;
-        &:hover {
-            border: 2px solid #a8afb3;
-        }
-    }
+
     .picker-wrapper {
         position: relative;
         z-index: 50;
@@ -177,12 +204,12 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    margin-bottom: 20px;
     font-size: 1.125rem;
     box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.03),
         0px 2px 30px 0px rgba(0, 0, 0, 0.08);
     color: #3f4652;
-    background: url('https://api.iconify.design/bx:bx-chevron-down.svg?color=%233f4652')
+    background-color: #fff;
+    background-image: url('https://api.iconify.design/bx:bx-chevron-down.svg?color=%233f4652')
         no-repeat right 15px center / 25px 25px;
 }
 .lang-label,
