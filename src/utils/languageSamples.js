@@ -10,7 +10,7 @@ const languageSamples = {
             if (i % 5 === 0) str += "buzz"
             if (str === "") str = i;
           
-            console.log(str);
+            console.log(str); // logs to console
           }
         }
                   `,
@@ -104,6 +104,24 @@ const languageSamples = {
       </body>
       </html>
             `,
+    },
+    xml: {
+        title: 'XML',
+        code: `
+      <Snippet>
+      <Header>
+      <Title>SXML parameters block</Title>
+      <Author>Smartsite Software</Author>
+      <Description>An SXML parameters block</Description>
+      </Header>
+      <Code Kind="sxml" Language="">
+      <![CDATA[<se:parameters>
+      <se:parameter name=""></se:parameter>
+      </se:parameters>]]>
+      </Code>
+      <ImageIndex>43</ImageIndex>
+     </Snippet>
+      `,
     },
 }
 

@@ -1,49 +1,43 @@
 import './App.scss'
 import './utils/prism.js'
 import { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { SketchPicker } from 'react-color'
-import ClickAwayListener from 'react-click-away-listener'
-// import ScrollArea from 'react-scrollbar'
+import styled, { createGlobalStyle } from 'styled-components'
+import GoogleFontLoader from 'react-google-font-loader'
 import styleTemplate from './utils/styleTemplate'
 import languageSamples from './utils/languageSamples'
 import allThemes from './utils/themes/_allThemes'
 import SideBar from './components/sidebar'
+import fonts from './utils/fonts'
 
-// react-color picker: converted all keys and style to objects
-// color-picker-active set to boolean to open the color picker if it gets clicked
-// looping over all the object keys
-// generating the css
-//
-
+const fontsForLoader = Object.keys(fonts)
+    .map((key) => {
+        return fonts[key].import
+            ? { font: fonts[key].name, weights: [400, '400i', 700, '700i'] }
+            : null
+    })
+    .filter((font) => font)
+console.log(fontsForLoader)
+const PrismWrapper = styled.div`
+    ${(props) => props.template}
+`
 function App() {
     const [languageKey, setLanguageKey] = useState('js')
+    const [fontKey, setFontKey] = useState('default')
     const [presetTheme, setPresetTheme] = useState(allThemes.okaidia)
     const [styleConfig, setStyleConfig] = useState(allThemes.okaidia.config)
-    const PrismWrapper = styled.div`
-        ${styleTemplate(styleConfig)}
-    `
-    const togglePicker = (key) => {
-        setStyleConfig({
-            ...styleConfig,
-            [key]: {
-                ...styleConfig[key],
-                colorPickerOpen: !styleConfig[key].colorPickerOpen,
-            },
-        })
-    }
 
-    useEffect(() => {
+    useEffect(async () => {
         Prism.highlightAll()
-    }, [styleConfig, languageKey])
+    }, [styleConfig, languageKey, fontKey])
+
     return (
         <div className="App">
+            <GoogleFontLoader fonts={fontsForLoader} />
             <div className="container">
                 <SideBar
                     styleConfig={styleConfig}
                     setStyleConfig={setStyleConfig}
                 />
-
                 <div className="main">
                     <div className="preview-inner">
                         <div className="prism-container">
@@ -62,7 +56,13 @@ function App() {
                                     ))}
                                 </select>
                             </div>
-                            <PrismWrapper className="prism-wrapper">
+                            <PrismWrapper
+                                template={styleTemplate(
+                                    styleConfig,
+                                    fonts[fontKey]
+                                )}
+                                className="prism-wrapper"
+                            >
                                 <pre>
                                     <code className={`language-${languageKey}`}>
                                         {languageSamples[languageKey].code}
@@ -77,13 +77,29 @@ function App() {
                         </button>
                         <a
                             href={`data:text/json;charset=utf-8,${encodeURIComponent(
-                                styleTemplate(styleConfig)
+                                styleTemplate(styleConfig, fonts[fontKey])
                             )}`}
                             className="download-link"
                             download="refract.css"
                         >
                             Download CSS
                         </a>
+                    </div>
+                </div>
+                <div className="right-bar">
+                    <div className="font-select-wrapper">
+                        <label className="sidebar-title">Font</label>
+                        <select
+                            className="font-select"
+                            value={fontKey}
+                            onChange={(e) => setFontKey(e.target.value)}
+                        >
+                            {Object.keys(fonts).map((key) => (
+                                <option key={key} value={key}>
+                                    {fonts[key].name}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                 </div>
             </div>

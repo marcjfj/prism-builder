@@ -18,21 +18,23 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     padding: 0 0 50px 0;
-    // position: relative;
+    position: relative;
     z-index: 25;
     box-shadow: inset -2px 0px 30px 0px rgba(0, 0, 0, 0.05);
-    .sidebar-title {
-        background: #404449;
-        margin: 0;
-        padding: 10px 20px;
-        color: #eef3f4;
-        position: sticky;
-        top: 0;
-        z-index: 20;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-    }
+}
+.sidebar-title {
+    display: block;
+    background: #404449;
+    margin: 0;
+    padding: 10px 20px;
+    color: #eef3f4;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
 }
 .main {
     display: flex;
@@ -62,6 +64,20 @@ body {
             text-decoration: none;
         }
     }
+}
+.right-bar {
+    width: 100%;
+    max-width: 250px;
+    background-color: #282c2f;
+    height: 100vh;
+}
+.font-select {
+    width: 100%;
+    background: #282c2f;
+    color: #e7eaee;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    border: 1px solid #404449;
 }
 .app-title {
     display: flex;

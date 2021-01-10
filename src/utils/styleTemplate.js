@@ -1,11 +1,15 @@
-const styles = (styleConfig) => {
+const styles = (styleConfig, font) => {
+    console.log(typeof styleConfig)
     return `
+  ${font.import || ''}
   code[class*='language-'],
   pre[class*='language-'] {
       color: ${styleConfig.base.color};
       background: none;
       text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-      font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+      font-family: ${
+          font ? font.name : 'Consolas'
+      }, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
       font-size: 1em;
       text-align: left;
       white-space: pre;
