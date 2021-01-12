@@ -100,11 +100,34 @@ body {
     }
 }
 .right-bar {
+    position: relative;
     width: 240px;
     flex-shrink: 0;
     background-color: #282c2f;
     height: 100vh;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    .credits {
+        margin-top: auto;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        color: #a8afb3;
+        text-align: center;
+        padding: 10px;
+        font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+            margin: 0 5px;
+            height: 24px;
+            width: 24px;
+        }
+    }
 }
 .font-select {
     width: 100%;
@@ -128,17 +151,24 @@ body {
     padding: 3px;
 }
 .app-title {
-    display: flex;
+    display: inline-flex;
     justify-content: flex-start;
     align-items: left;
     text-transform: uppercase;
     letter-spacing: 6px;
-    width: 100%;
+    // width: 100%;
     margin: 0;
+    margin-right: 10px;
     font-size: 0.875rem;
     position: relative;
     z-index: 50;
     color: #404449;
+}
+.tagline {
+    margin-right: auto;
+    font-style: italic;
+    color: #404449;
+    font-size: 0.75rem;
 }
 .react {
     display: flex;

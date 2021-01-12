@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import GoogleFontLoader from 'react-google-font-loader'
 import { SketchPicker } from 'react-color'
 import ClickAwayListener from 'react-click-away-listener'
+import { Icon, InlineIcon } from '@iconify/react'
+import GhIcon from '@iconify-icons/bx/bxl-github'
 import styleTemplate from './utils/styleTemplate'
 import languageSamples from './utils/languageSamples'
 import allThemes from './utils/themes/_allThemes'
@@ -130,6 +132,7 @@ function App() {
                     <div className="bottom-bar">
                         <div className="export-controls">
                             <h1 className="app-title">Refract</h1>
+                            <p className="tagline">A Prism.js theme builder</p>
                             <button
                                 onClick={() => setGenCodeOpen(!genCodeOpen)}
                                 className="view-gen-code"
@@ -193,6 +196,7 @@ function App() {
                                     (color) => (
                                         <div
                                             className="theme-swatch"
+                                            key={color}
                                             style={{
                                                 background: color,
                                             }}
@@ -202,6 +206,13 @@ function App() {
                             </div>
                         </button>
                     ))}
+                    <div className="credits">
+                        <span>Made with</span>
+                        <a href="https://github.com/marcjfj/prism-builder">
+                            <Icon icon={GhIcon} color="#FFF" />
+                        </a>
+                        <span>in Kansas City</span>
+                    </div>
                 </div>
             </div>
         </div>

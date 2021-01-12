@@ -74,7 +74,7 @@ export default {
         selector: '.token.number',
     },
     selector: {
-        color: '#e53935;',
+        color: '#e53935',
         colorPickerOpen: false,
         selector: '.token.selector',
     },
