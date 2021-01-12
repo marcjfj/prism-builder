@@ -1,6 +1,14 @@
 import { SketchPicker } from 'react-color'
 import ClickAwayListener from 'react-click-away-listener'
-const SideBar = ({ styleConfig, setStyleConfig }) => {
+const SideBar = ({
+    styleConfig,
+    setStyleConfig,
+    fonts,
+    fontKey,
+    setFontKey,
+    fontSize,
+    setFontSize,
+}) => {
     const togglePicker = (key) => {
         setStyleConfig({
             ...styleConfig,
@@ -17,6 +25,33 @@ const SideBar = ({ styleConfig, setStyleConfig }) => {
     }
     return (
         <div className="sidebar">
+            <div className="font-select-wrapper">
+                <label htmlFor="font-select" className="sidebar-title">
+                    Font
+                </label>
+                <select
+                    id="font-select"
+                    className="font-select"
+                    value={fontKey}
+                    onChange={(e) => setFontKey(e.target.value)}
+                >
+                    {Object.keys(fonts).map((key) => (
+                        <option key={key} value={key}>
+                            {fonts[key].name}
+                        </option>
+                    ))}
+                </select>
+                <div className="font-size input-block">
+                    <input
+                        value={fontSize}
+                        onChange={(e) => setFontSize(e.target.value)}
+                        type="number"
+                        id="font-size-input"
+                        className="font-size-input"
+                    />
+                    <label htmlFor="font-size-input">px</label>
+                </div>
+            </div>
             <h3 className="sidebar-title">Colors</h3>
             {Object.keys(styleConfig).map((key) => (
                 <div

@@ -209,8 +209,10 @@ body {
         0px 2px 30px 0px rgba(0, 0, 0, 0.08);
     color: #3f4652;
     background-color: #fff;
-    background-image: url('https://api.iconify.design/bx:bx-chevron-down.svg?color=%233f4652')
-        no-repeat right 15px center / 25px 25px;
+    background-image: url('https://api.iconify.design/bx:bx-chevron-down.svg?color=%233f4652');
+    background-size: 25px;
+    background-position: right 10px center;
+    background-repeat: no-repeat;
 }
 .lang-label,
 .gen-code-label {
@@ -292,5 +294,35 @@ body {
     pre {
         margin: 0 !important;
         border-radius: 0 !important;
+    }
+}
+
+.theme-button {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 15px 10px;
+    border: 1px solid #a8afb3;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 0;
+}
+.theme-button-title {
+    border-radius: 3px;
+    padding: 5px;
+    background: #404449;
+    color: #e7eaee;
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+}
+.theme-swatches {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+
+    .theme-swatch {
+        height: 50px;
+        width: 100%;
+        // margin: 3px;
     }
 }

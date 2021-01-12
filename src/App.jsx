@@ -21,11 +21,20 @@ const fontsForLoader = Object.keys(fonts)
 const PrismWrapper = styled.div`
     ${(props) => props.template}
 `
+const getUniqueColors = (theme) => {
+    const colors = [
+        ...new Set(
+            Object.keys(theme.config).map((key) => theme.config[key].color)
+        ),
+    ]
+    colors.shift()
+    return colors
+}
+getUniqueColors(allThemes.okaidia)
 function App() {
     const [languageKey, setLanguageKey] = useState('js')
     const [fontKey, setFontKey] = useState('default')
     const [genCodeOpen, setGenCodeOpen] = useState(false)
-    const [presetTheme, setPresetTheme] = useState(allThemes.okaidia)
     const [styleConfig, setStyleConfig] = useState(allThemes.okaidia.config)
     const [fontSize, setFontSize] = useState(16)
     const [canvasColor, setCanvasColor] = useState('#f4f6f6')
@@ -42,6 +51,11 @@ function App() {
                 <SideBar
                     styleConfig={styleConfig}
                     setStyleConfig={setStyleConfig}
+                    fonts={fonts}
+                    fontKey={fontKey}
+                    setFontKey={setFontKey}
+                    fontSize={fontSize}
+                    setFontSize={setFontSize}
                 />
                 <div className="main" style={{ background: canvasColor }}>
                     <div className="preview-inner">
@@ -158,33 +172,36 @@ function App() {
                     </div>
                 </div>
                 <div className="right-bar">
-                    <div className="font-select-wrapper">
-                        <label htmlFor="font-select" className="sidebar-title">
-                            Font
-                        </label>
-                        <select
-                            id="font-select"
-                            className="font-select"
-                            value={fontKey}
-                            onChange={(e) => setFontKey(e.target.value)}
+                    <h3 className="sidebar-title">Themes</h3>
+                    {Object.keys(allThemes).map((key) => (
+                        <button
+                            key={key}
+                            onClick={() =>
+                                setStyleConfig(allThemes[key].config)
+                            }
+                            className="theme-button"
+                            style={{
+                                background:
+                                    allThemes[key].config.background.color,
+                            }}
                         >
-                            {Object.keys(fonts).map((key) => (
-                                <option key={key} value={key}>
-                                    {fonts[key].name}
-                                </option>
-                            ))}
-                        </select>
-                        <div className="font-size input-block">
-                            <input
-                                value={fontSize}
-                                onChange={(e) => setFontSize(e.target.value)}
-                                type="number"
-                                id="font-size-input"
-                                className="font-size-input"
-                            />
-                            <label htmlFor="font-size-input">px</label>
-                        </div>
-                    </div>
+                            <span className="theme-button-title">
+                                {allThemes[key].title}
+                            </span>
+                            <div className="theme-swatches">
+                                {getUniqueColors(allThemes[key]).map(
+                                    (color) => (
+                                        <div
+                                            className="theme-swatch"
+                                            style={{
+                                                background: color,
+                                            }}
+                                        ></div>
+                                    )
+                                )}
+                            </div>
+                        </button>
+                    ))}
                 </div>
             </div>
         </div>
