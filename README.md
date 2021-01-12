@@ -2,9 +2,10 @@
 
 ### Made by:
 
-(Peter Smith)[https://github.com/psmith1]
-(Marc Farias Jones)[https://github.com/marcjfj]
+[Peter Smith](https://github.com/psmith1)
+
+[Marc Farias Jones](ttps://github.com/marcjfj)
 
 ### Broken by:
 
-(Victor Uland)[https://github.com/vuduland]
+[Victor Uland](https://github.com/vuduland)
