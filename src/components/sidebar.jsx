@@ -20,7 +20,7 @@ const SideBar = ({
     }
     const highlightPairs = (selector, active) => {
         const tokens = document.querySelectorAll(selector).forEach((t) => {
-            t.style.textDecoration = active ? 'underline' : 'none'
+            t.style.background = active ? '#d6d6d633' : 'transparent'
         })
     }
     return (
