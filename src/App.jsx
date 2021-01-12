@@ -131,7 +131,7 @@ function App() {
                     </div>
                     <div className="bottom-bar">
                         <div className="export-controls">
-                            <h1 className="app-title">Refract</h1>
+                            <h1 className="app-title">Prism Colors</h1>
                             <p className="tagline">A Prism.js theme builder</p>
                             <button
                                 onClick={() => setGenCodeOpen(!genCodeOpen)}

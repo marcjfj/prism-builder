@@ -170,6 +170,12 @@ body {
     color: #404449;
     font-size: 0.75rem;
 }
+@media (max-width: 1080px) {
+    .app-title,
+    .tagline {
+        display: none;
+    }
+}
 .react {
     display: flex;
     color: black;
