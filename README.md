@@ -4,7 +4,7 @@
 
 [Peter Smith](https://github.com/psmith1)
 
-[Marc Farias Jones](ttps://github.com/marcjfj)
+[Marc Farias Jones](https://github.com/marcjfj)
 
 ### Broken by:
 
