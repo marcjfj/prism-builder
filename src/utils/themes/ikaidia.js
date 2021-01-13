@@ -1,6 +1,6 @@
 export default {
     background: {
-        color: '#f06d06',
+        color: '#272822',
         colorPickerOpen: false,
     },
     base: {
