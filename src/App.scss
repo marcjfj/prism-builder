@@ -140,6 +140,11 @@ body {
     padding: 10px 15px;
     text-transform: uppercase;
     border: 1px solid #404449;
+    appearance: none;
+    background-image: url('https://api.iconify.design/bx:bx-chevron-down.svg?color=%23a8afb3');
+    background-size: 25px;
+    background-position: right 10px center;
+    background-repeat: no-repeat;
 }
 .font-size {
     padding: 10px 0;
