@@ -145,7 +145,10 @@ function App() {
                     <div className="bottom-bar">
                         <div className="export-controls">
                             <h1 className="app-title">Prism Colors</h1>
-                            <p className="tagline">A Prism.js theme builder</p>
+                            <p className="tagline">
+                                A <a href="https://prismjs.com/">Prism.js</a>{' '}
+                                theme builder
+                            </p>
                             <button
                                 onClick={() => setGenCodeOpen(!genCodeOpen)}
                                 className="view-gen-code"

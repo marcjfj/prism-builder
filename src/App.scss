@@ -159,7 +159,7 @@ body {
     justify-content: flex-start;
     align-items: left;
     text-transform: uppercase;
-    letter-spacing: 6px;
+    letter-spacing: 3px;
     // width: 100%;
     margin: 0;
     margin-right: 10px;
@@ -173,6 +173,9 @@ body {
     font-style: italic;
     color: #404449;
     font-size: 0.75rem;
+    a {
+        color: #282c2f;
+    }
 }
 @media (max-width: 1080px) {
     .app-title,
