@@ -167,7 +167,7 @@ function App() {
                                         )
                                     )}`}
                                     className="download-link"
-                                    download="refract.css"
+                                    download="prism-colors.css"
                                 >
                                     Download CSS
                                 </a>
