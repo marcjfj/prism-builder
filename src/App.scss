@@ -108,7 +108,11 @@ body {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    .right-bar-inner {
+        padding-bottom: 10px;
+    }
     .credits {
+        background: #3f4652;
         margin-top: auto;
         position: sticky;
         bottom: 0;
@@ -344,13 +348,12 @@ body {
     padding: 0;
 }
 .theme-button-title {
-    border-radius: 3px;
     padding: 5px;
     background: #404449;
     color: #e7eaee;
     display: block;
     width: 100%;
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 .theme-swatches {
     width: 100%;

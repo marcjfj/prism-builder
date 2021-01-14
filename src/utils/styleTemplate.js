@@ -64,7 +64,7 @@ const styles = (styleConfig, font, fontSize) => {
   }
 
   .token.namespace {
-      opacity: ${styleConfig.namespace.color};
+      color: ${styleConfig.namespace.color};
   }
 
   .token.property {
@@ -94,7 +94,7 @@ const styles = (styleConfig, font, fontSize) => {
       color: ${styleConfig.selector.color};
   }
   .token.attr-name {
-      color: ${styleConfig.attrName.color};
+      color: ${styleConfig['attr-name'].color};
   }
   .token.string {
       color: ${styleConfig.string.color};
@@ -118,10 +118,7 @@ const styles = (styleConfig, font, fontSize) => {
   .token.url {
       color: ${styleConfig.url.color};
   }
-  .language-css .token.string {
-      color: ${styleConfig.string.color};
-  }
-  .style .token.string {
+  .token.string {
       color: ${styleConfig.string.color};
   }
   .token.variable {
@@ -132,13 +129,13 @@ const styles = (styleConfig, font, fontSize) => {
       color: ${styleConfig.atrule.color};
   }
   .token.attr-value {
-      color: ${styleConfig.attrValue.color};
+      color: ${styleConfig['attr-value'].color};
   }
   .token.function {
       color: ${styleConfig.function.color};
   }
   .token.class-name {
-      color: ${styleConfig.className.color};
+      color: ${styleConfig['class-name'].color};
   }
 
   .token.keyword {

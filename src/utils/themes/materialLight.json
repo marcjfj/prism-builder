@@ -1,0 +1,98 @@
+ {
+     "background": {
+         "color": "#fafafa"
+     },
+     "base": {
+         "color": "#90a4ae"
+     },
+     "comment": {
+         "color": "#aabfc9"
+     },
+     "prolog": {
+         "color": "#aabfc9"
+     },
+     "doctype": {
+         "color": "#aabfc9"
+     },
+     "selector": {
+         "color": "#aabfc9"
+     },
+     "cdata": {
+         "color": "#39adb5"
+     },
+     "punctuation": {
+         "color": "#39adb5"
+     },
+     "namespace": {
+         "color": "#90a4ae"
+     },
+     "property": {
+         "color": "#39adb5"
+     },
+     "tag": {
+         "color": "#e53935"
+     },
+     "constant": {
+         "color": "#7c4dff"
+     },
+     "symbol": {
+         "color": "#7c4dff"
+     },
+     "deleted": {
+         "color": "#e53935"
+     },
+     "boolean": {
+         "color": "#7c4dff"
+     },
+     "number": {
+         "color": "#f76d47"
+     },
+     "attr-name": {
+         "color": "#39adb5"
+     },
+     "string": {
+         "color": "#f6a434"
+     },
+     "char": {
+         "color": "#39adb5"
+     },
+     "builtin": {
+         "color": "#39adb5"
+     },
+     "inserted": {
+         "color": "#39adb5"
+     },
+     "operator": {
+         "color": "#39adb5"
+     },
+     "entity": {
+         "color": "#393566"
+     },
+     "url": {
+         "color": "#e53935"
+     },
+     "atrule": {
+         "color": "#7c4dff"
+     },
+     "attr-value": {
+         "color": "#f6a434"
+     },
+     "function": {
+         "color": "#7c4dff"
+     },
+     "class-name": {
+         "color": "#6182b8"
+     },
+     "keyword": {
+         "color": "#7c4dff"
+     },
+     "variable": {
+         "color": "#e53935"
+     },
+     "important": {
+         "color": "#7c4dff"
+     },
+     "regex": {
+         "color": "#6182b8"
+     }
+ }

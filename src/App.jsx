@@ -32,12 +32,25 @@ const getUniqueColors = (theme) => {
     colors.shift()
     return colors
 }
-getUniqueColors(allThemes.okaidia)
+const addParamsToConfig = (config) => {
+    return Object.keys(config).reduce((obj, key) => {
+        return {
+            ...obj,
+            [key]: {
+                color: config[key].color,
+                colorPickerIsOpen: false,
+                selector: `.token.${key}`,
+            },
+        }
+    }, {})
+}
 function App() {
     const [languageKey, setLanguageKey] = useState('js')
     const [fontKey, setFontKey] = useState('default')
     const [genCodeOpen, setGenCodeOpen] = useState(false)
-    const [styleConfig, setStyleConfig] = useState(allThemes.okaidia.config)
+    const [styleConfig, setStyleConfig] = useState(
+        addParamsToConfig(allThemes.okaidia.config)
+    )
     const [fontSize, setFontSize] = useState(16)
     const [canvasColor, setCanvasColor] = useState('#f4f6f6')
     const [canvasPicker, setCanvasPicker] = useState(false)
@@ -176,36 +189,40 @@ function App() {
                 </div>
                 <div className="right-bar">
                     <h3 className="sidebar-title">Themes</h3>
-                    {Object.keys(allThemes).map((key) => (
-                        <button
-                            key={key}
-                            onClick={() =>
-                                setStyleConfig(allThemes[key].config)
-                            }
-                            className="theme-button"
-                            style={{
-                                background:
-                                    allThemes[key].config.background.color,
-                            }}
-                        >
-                            <span className="theme-button-title">
-                                {allThemes[key].title}
-                            </span>
-                            <div className="theme-swatches">
-                                {getUniqueColors(allThemes[key]).map(
-                                    (color) => (
-                                        <div
-                                            className="theme-swatch"
-                                            key={color}
-                                            style={{
-                                                background: color,
-                                            }}
-                                        ></div>
+                    <div className="right-bar-inner">
+                        {Object.keys(allThemes).map((key) => (
+                            <button
+                                key={key}
+                                onClick={() =>
+                                    setStyleConfig(
+                                        addParamsToConfig(allThemes[key].config)
                                     )
-                                )}
-                            </div>
-                        </button>
-                    ))}
+                                }
+                                className="theme-button"
+                                style={{
+                                    background:
+                                        allThemes[key].config.background.color,
+                                }}
+                            >
+                                <span className="theme-button-title">
+                                    {allThemes[key].title}
+                                </span>
+                                <div className="theme-swatches">
+                                    {getUniqueColors(allThemes[key]).map(
+                                        (color) => (
+                                            <div
+                                                className="theme-swatch"
+                                                key={color}
+                                                style={{
+                                                    background: color,
+                                                }}
+                                            ></div>
+                                        )
+                                    )}
+                                </div>
+                            </button>
+                        ))}
+                    </div>
                     <div className="credits">
                         <span>Made with</span>
                         <a href="https://github.com/marcjfj/prism-builder">
