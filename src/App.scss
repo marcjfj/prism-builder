@@ -51,6 +51,7 @@ body {
     height: 100vh;
     max-height: 100vh;
     width: 100%;
+    max-width: calc(100vw - 480px);
     position: sticky;
     top: 0;
     padding-top: 30px;
@@ -67,6 +68,7 @@ body {
         pre {
             max-height: calc(100vh - 200px);
         }
+
         code span {
             text-decoration: none;
         }
