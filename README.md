@@ -1,13 +1,11 @@
-# Copyright 2021 Vudu Labs
+# ✨[Prism Colors](https://prism-colors.com/)✨
 
-### Made by:
+## A theme builder for [Prism.js](https://prismjs.com/).
 
-[Peter Smith](https://github.com/psmith1)
+### Contributors:
 
 [Marc Farias Jones](https://github.com/marcjfj)
 
-### Broken by:
+[Peter Smith](https://github.com/psmith1)
 
 [Victor Uland](https://github.com/vuduland)
-
-jk victor we ♥️ you
