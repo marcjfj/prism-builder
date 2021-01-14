@@ -143,51 +143,57 @@ function App() {
                         </div>
                     </div>
                     <div className="bottom-bar">
-                        <div className="export-controls">
-                            <h1 className="app-title">Prism Colors</h1>
-                            <p className="tagline">
-                                A <a href="https://prismjs.com/">Prism.js</a>{' '}
-                                theme builder
-                            </p>
-                            <button
-                                onClick={() => setGenCodeOpen(!genCodeOpen)}
-                                className="view-gen-code"
-                            >
-                                {genCodeOpen
-                                    ? 'Hide Generated CSS'
-                                    : 'View Generated CSS'}
-                            </button>
-                            <a
-                                href={`data:text/json;charset=utf-8,${encodeURIComponent(
-                                    styleTemplate(styleConfig, fonts[fontKey])
-                                )}`}
-                                className="download-link"
-                                download="refract.css"
-                            >
-                                Download CSS
-                            </a>
-                        </div>
-                        {genCodeOpen ? (
-                            <div className="gen-code">
-                                <PrismWrapper
-                                    template={styleTemplate(
-                                        styleConfig,
-                                        fonts[fontKey]
-                                    )}
-                                    className="gen-prism-wrapper"
+                        <div className="bottom-bar-inner">
+                            <div className="export-controls">
+                                <h1 className="app-title">Prism Colors</h1>
+                                <p className="tagline">
+                                    A{' '}
+                                    <a href="https://prismjs.com/">Prism.js</a>{' '}
+                                    theme builder
+                                </p>
+                                <button
+                                    onClick={() => setGenCodeOpen(!genCodeOpen)}
+                                    className="view-gen-code"
                                 >
-                                    <pre>
-                                        <code className="language-css">
-                                            {styleTemplate(
-                                                styleConfig,
-                                                fonts[fontKey],
-                                                fontSize
-                                            )}
-                                        </code>
-                                    </pre>
-                                </PrismWrapper>
+                                    {genCodeOpen
+                                        ? 'Hide Generated CSS'
+                                        : 'View Generated CSS'}
+                                </button>
+                                <a
+                                    href={`data:text/json;charset=utf-8,${encodeURIComponent(
+                                        styleTemplate(
+                                            styleConfig,
+                                            fonts[fontKey]
+                                        )
+                                    )}`}
+                                    className="download-link"
+                                    download="refract.css"
+                                >
+                                    Download CSS
+                                </a>
                             </div>
-                        ) : null}
+                            {genCodeOpen ? (
+                                <div className="gen-code">
+                                    <PrismWrapper
+                                        template={styleTemplate(
+                                            styleConfig,
+                                            fonts[fontKey]
+                                        )}
+                                        className="gen-prism-wrapper"
+                                    >
+                                        <pre>
+                                            <code className="language-css">
+                                                {styleTemplate(
+                                                    styleConfig,
+                                                    fonts[fontKey],
+                                                    fontSize
+                                                )}
+                                            </code>
+                                        </pre>
+                                    </PrismWrapper>
+                                </div>
+                            ) : null}
+                        </div>
                     </div>
                 </div>
                 <div className="right-bar">

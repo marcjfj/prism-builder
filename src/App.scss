@@ -298,9 +298,14 @@ body {
     background: #e7eaee;
     position: fixed;
     bottom: 0;
-    left: 240px;
-    width: calc(100% - 480px);
+    width: 100%;
     margin-top: auto;
+    box-shadow: inset 0px 2px 20px 0px rgba(0, 0, 0, 0.151);
+    .bottom-bar-inner {
+        width: 100%;
+        max-width: calc(100% - 480px);
+        margin: 0 auto;
+    }
 }
 .export-controls {
     padding: 12px 20px;
@@ -308,7 +313,6 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    box-shadow: inset 0px 2px 20px 0px rgba(0, 0, 0, 0.151);
 }
 .download-link,
 .view-gen-code {
