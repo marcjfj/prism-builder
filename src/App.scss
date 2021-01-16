@@ -50,6 +50,7 @@ body {
     justify-content: flex-start; // horizontally
     height: 100vh;
     max-height: 100vh;
+    overflow: hidden;
     width: 100%;
     max-width: calc(100vw - 480px);
     position: sticky;

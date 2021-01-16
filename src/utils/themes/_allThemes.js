@@ -8,6 +8,7 @@ import github from './github.json'
 import atomDark from './atom-dark.json'
 import vscDark from './vsc-dark.json'
 import nord from './nord.json'
+import coldark from './coldark-dark.json'
 // import materialDark from './materialDark'
 
 export default {
@@ -50,5 +51,9 @@ export default {
     nord: {
         title: 'Nord',
         config: nord,
+    },
+    coldark: {
+        title: 'Coldark Dark',
+        config: coldark,
     },
 }
