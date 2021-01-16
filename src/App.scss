@@ -383,3 +383,20 @@ body {
         // margin: 3px;
     }
 }
+.mobile-overlay {
+    display: none;
+    @media (max-width: 800px) {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #404449;
+        color: #fff;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        flex-direction: column;
+    }
+}

@@ -241,6 +241,10 @@ function App() {
                     </div>
                 </div>
             </div>
+            <div className="mobile-overlay">
+                <p>Open in a desktop browser 😬</p>
+                <p>✨Prism-Colors.com✨</p>
+            </div>
         </div>
     )
 }
